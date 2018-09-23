@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item1_menu1"
+        android:orderInCategory="100"
+        android:title="Configuraciones"
+
+        />
+
+    <item
+        android:id="@+id/item2_menu1"
+        android:title="Cerrar Sesion"
+
+        />
+
+    <item
+        android:id="@+id/item3_menu1"
+        android:title="Salir"
+
+        />
+
+</menu>
