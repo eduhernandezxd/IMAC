@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,7 +17,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -50,13 +49,24 @@ public class Main2Activity extends AppCompatActivity
         setContentView(R.layout.activity_main2);
 
         recyclerView=findViewById(R.id.recyclerView_f);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         llenar_lista();
 
 
         ItemsAdapter adapter1 = new ItemsAdapter(l_datos);
         recyclerView.setAdapter(adapter1);
+
+        adapter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),
+                        "Ingresar informacion referente al: "+l_datos.get(recyclerView
+                                .getChildAdapterPosition(v)).getObjeto2(),Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
