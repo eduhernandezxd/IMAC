@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,15 +17,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Adapter;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -34,15 +31,16 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
 
 
-    private ListView listaprincipal;
-
     private GoogleApiClient googleApiClient;
+    private RecyclerView recyclerView;
+
+    ArrayList<Items> l_datos = new ArrayList<Items>();
 
 
 
@@ -51,24 +49,19 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        recyclerView=findViewById(R.id.recyclerView_f);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        llenar_lista();
+
+
+        ItemsAdapter adapter1 = new ItemsAdapter(l_datos);
+        recyclerView.setAdapter(adapter1);
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        ListaParquesPrincipal listaParquesPrincipal_datos[] = new ListaParquesPrincipal[]{
-                new ListaParquesPrincipal(R.drawable.ic_launcher,"Parque 1"),
-                new ListaParquesPrincipal(R.drawable.ic_launcher,"Parque 2"),
-                new ListaParquesPrincipal(R.drawable.ic_launcher,"Parque 3"),
-                new ListaParquesPrincipal(R.drawable.ic_launcher,"Parque 4"),
-                new ListaParquesPrincipal(R.drawable.ic_launcher,"Parque 5"),
-        };
-
-        ListaParquesPrincipalAdapter adapter = new ListaParquesPrincipalAdapter(this,R.layout.listview_item_row,listaParquesPrincipal_datos);
-
-
-        listaprincipal=findViewById(R.id.listaPrincipal);
-
-        listaprincipal.setAdapter(adapter);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -78,10 +71,6 @@ public class Main2Activity extends AppCompatActivity
                 .enableAutoManage(this,this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
-
-
-
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -101,6 +90,22 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void llenar_lista() {
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 1"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 2"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 3"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 4"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 5"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 6"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 7"));
+        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 8"));
+
+
+
+
+
     }
 
     @Override
