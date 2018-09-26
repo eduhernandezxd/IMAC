@@ -1,12 +1,11 @@
 package com.ucab.tesis.imac;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -28,18 +26,25 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.ucab.tesis.imac.fragments.FragmentA;
+import com.ucab.tesis.imac.fragments.FragmentB;
+import com.ucab.tesis.imac.interfaces.ComunicatorIF;
 
 import java.util.ArrayList;
 
 
 public class Main2Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        GoogleApiClient.OnConnectionFailedListener,
+        FragmentA.OnFragmentInteractionListener,
+        FragmentB.OnFragmentInteractionListener,
+        ComunicatorIF{
 
 
     private GoogleApiClient googleApiClient;
-    private RecyclerView recyclerView;
+    FragmentA fragmentA;
+    FragmentB fragmentB;
 
-    ArrayList<Items> l_datos = new ArrayList<Items>();
 
 
 
@@ -48,25 +53,11 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        recyclerView=findViewById(R.id.recyclerView_f);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        fragmentA = new FragmentA();
+        fragmentB = new FragmentB();
 
-        llenar_lista();
-
-
-        ItemsAdapter adapter1 = new ItemsAdapter(l_datos);
-        recyclerView.setAdapter(adapter1);
-
-        adapter1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),
-                        "Ingresar informacion referente al: "+l_datos.get(recyclerView
-                                .getChildAdapterPosition(v)).getObjeto2(),Toast.LENGTH_LONG).show();
-            }
-        });
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contendorFragments,fragmentA).commit();
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -102,21 +93,6 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void llenar_lista() {
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 1"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 2"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 3"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 4"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 5"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 6"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 7"));
-        l_datos.add(new Items(R.mipmap.ic_launcher, "Parque 8"));
-
-
-
-
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -241,6 +217,28 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Toast.makeText(this,"Fallo de Conexion",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void enviar_datos(Items items_data) {
+        fragmentB=new FragmentB();
+        Bundle bundle1 = new Bundle();
+        bundle1.putSerializable("objeto",items_data);
+        fragmentB.setArguments(bundle1);
+
+        //Se carga el Fragments correspondiente
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.contendorFragments,fragmentB).addToBackStack(null
+        ).commit();
+
+
     }
 }
 

@@ -1,4 +1,4 @@
-package com.ucab.tesis.imac;
+package com.ucab.tesis.imac.Adaptadores;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ucab.tesis.imac.Items;
+import com.ucab.tesis.imac.R;
+
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolderDatos>
@@ -61,7 +66,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolderDa
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
         TextView dato1;
-        ImageView dato2;
+        CircleImageView dato2;
 
         public ViewHolderDatos(View itemView) {
 

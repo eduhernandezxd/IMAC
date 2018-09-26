@@ -9,23 +9,14 @@
     tools:layout_editor_absoluteY="81dp"
     tools:showIn="@layout/app_bar_main2">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_f"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
-
-    </android.support.v7.widget.RecyclerView>
-    
-    <fragment
-        android:id="@+id/framengt_A"
+    <FrameLayout
+        android:id="@+id/contendorFragments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
 
-    </fragment>
-
+    </FrameLayout>
+    
 
 
 </android.support.constraint.ConstraintLayout>
