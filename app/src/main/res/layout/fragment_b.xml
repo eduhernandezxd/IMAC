@@ -7,6 +7,16 @@
     tools:context=".fragments.FragmentB"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
     <ImageView
         android:id="@+id/fotodetalle"
         android:layout_width="match_parent"
@@ -18,19 +28,13 @@
         android:id="@+id/textoDetalle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="For Your Information"
+        android:text="Direccion del parque"
+        android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="italic"
+        android:padding="16dp"
         />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <iammert.com.expandablelib.ExpandableLayout
                 android:id="@+id/expand_list"

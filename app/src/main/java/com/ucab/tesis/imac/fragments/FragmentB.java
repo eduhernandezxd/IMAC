@@ -147,8 +147,7 @@ public class FragmentB extends Fragment {
         llenar_lista_opciones();
   //      llenar_lista_infoparques();
 
-        InformacionParques info = new InformacionParques("PARQUE");
-        section.parent = info;
+        section.parent = new InformacionParques("PARQUE");
         section.children.addAll(list);
 
         return section;
