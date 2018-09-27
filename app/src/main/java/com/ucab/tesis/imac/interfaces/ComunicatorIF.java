@@ -1,6 +1,6 @@
 package com.ucab.tesis.imac.interfaces;
 
-import com.ucab.tesis.imac.Items;
+import com.ucab.tesis.imac.modelo.Items;
 
 public interface ComunicatorIF {
 

@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.ucab.tesis.imac.Items;
+import com.ucab.tesis.imac.modelo.Items;
 import com.ucab.tesis.imac.Adaptadores.ItemsAdapter;
 import com.ucab.tesis.imac.R;
 import com.ucab.tesis.imac.interfaces.ComunicatorIF;

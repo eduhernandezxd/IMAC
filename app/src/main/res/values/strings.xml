@@ -17,8 +17,11 @@
     <string name="toast_error_inicio_sesion">No se pudo iniciar sesión, intente de nuevo</string>
     <string name="error_iniciosesion">No se pudo iniciar sesión, intente de nuevo</string>
     <string name="imagen_del_parque">Imagen del Parque</string>
+    <string name="normas">Normas y Reglamentos</string>
+    <string name="historia">Reseña Historica</string>
+    <string name="vegetacion">Vegetación Arborea</string>
+    <string name="actividades">Actividades Recreacionales</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 

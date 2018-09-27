@@ -10,8 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ucab.tesis.imac.Items;
+import com.ucab.tesis.imac.modelo.InformacionParques;
+import com.ucab.tesis.imac.modelo.InformacionParques_opciones;
+import com.ucab.tesis.imac.modelo.Items;
 import com.ucab.tesis.imac.R;
+
+import java.util.ArrayList;
+
+import iammert.com.expandablelib.ExpandableLayout;
+import iammert.com.expandablelib.Section;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +42,9 @@ public class FragmentB extends Fragment {
 
     TextView texto_s;
     ImageView imagen_s;
+
+    ArrayList<InformacionParques> list_items;
+    ArrayList<InformacionParques_opciones> list;
 
     public FragmentB() {
         // Required empty public constructor
@@ -85,9 +95,81 @@ public class FragmentB extends Fragment {
             texto_s.setText(datos.getObjeto4());
         }
 
+        //Lista de Opciones: Normas,Actividades,Historia,Vegetacion
+
+        ExpandableLayout expandableLayout = vista.findViewById(R.id.expand_list);
+        expandableLayout.setRenderer(new ExpandableLayout.Renderer<InformacionParques,
+                InformacionParques_opciones>() {
+            @Override
+            public void renderParent(View view, InformacionParques informacionParques,
+                                     boolean accion, int parentPosition) {
+
+                ((TextView)view.findViewById(R.id.textView_padre))
+                        .setText(informacionParques.getOpciones());
+                view.findViewById(R.id.flecha_lista)
+                        .setBackgroundResource(accion?R.drawable.ic_arrow_up:R.drawable.ic_arrow_down);
+            }
+
+            @Override
+            public void renderChild(View view, InformacionParques_opciones info_p_o,
+                                    int parentPosition, int childPosition) {
+
+                ((TextView)view.findViewById(R.id.textView_hijo)).setText(info_p_o.getOpciones_adicionales());
+
+            }
+        });
+
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+        expandableLayout.addSection(getSection());
+
+
+
 
         return vista;
     }
+
+    private Section<InformacionParques,InformacionParques_opciones> getSection() {
+
+        Section<InformacionParques,InformacionParques_opciones> section = new Section<>();
+
+
+
+//        list_items = new ArrayList<>();
+        list = new ArrayList<>();
+        llenar_lista_opciones();
+  //      llenar_lista_infoparques();
+
+        InformacionParques info = new InformacionParques("PARQUE");
+        section.parent = info;
+        section.children.addAll(list);
+
+        return section;
+    }
+ /*
+    private void llenar_lista_infoparques() {
+        list_items.add(new InformacionParques(R.string.normas));
+        list_items.add(new InformacionParques(R.string.historia));
+        list_items.add(new InformacionParques(R.string.vegetacion));
+        list_items.add(new InformacionParques(R.string.actividades));
+    }
+*/
+    private void llenar_lista_opciones() {
+        list.add(new InformacionParques_opciones("Opcion 1"));
+        list.add(new InformacionParques_opciones("Opcion 2"));
+        list.add(new InformacionParques_opciones("Opcion 3"));
+        list.add(new InformacionParques_opciones("Opcion 4"));
+        list.add(new InformacionParques_opciones("Opcion 5"));
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
