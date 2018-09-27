@@ -110,11 +110,11 @@ public class FragmentA extends Fragment {
 
     private void llenar_lista() {
             //Metodo para llenar la lista de los Parques correspndientes
-        l_datos.add(new Items(R.mipmap.ic_launcher,R.drawable.ambiente_chacao,"Parque 1", "Parque 1 FYI"));
-        l_datos.add(new Items(R.mipmap.ic_launcher,R.drawable.ambiente_chacao,"Parque 2", "Parque 2 FYI"));
-        l_datos.add(new Items(R.mipmap.ic_launcher,R.drawable.ambiente_chacao,"Parque 3", "Parque 3 FYI"));
-        l_datos.add(new Items(R.mipmap.ic_launcher,R.drawable.ambiente_chacao,"Parque 4", "Parque 4 FYI"));
-        l_datos.add(new Items(R.mipmap.ic_launcher,R.drawable.ambiente_chacao,"Parque 5", "Parque 5 FYI"));
+        l_datos.add(new Items(R.drawable.plaza_bolivar,R.drawable.ambiente_chacao,"Parque 1", "Parque 1 FYI"));
+        l_datos.add(new Items(R.drawable.plaza_bolivar,R.drawable.ambiente_chacao,"Parque 2", "Parque 2 FYI"));
+        l_datos.add(new Items(R.drawable.plaza_bolivar,R.drawable.ambiente_chacao,"Parque 3", "Parque 3 FYI"));
+        l_datos.add(new Items(R.drawable.plaza_bolivar,R.drawable.ambiente_chacao,"Parque 4", "Parque 4 FYI"));
+        l_datos.add(new Items(R.drawable.plaza_bolivar,R.drawable.ambiente_chacao,"Parque 5", "Parque 5 FYI"));
 
 
     }
