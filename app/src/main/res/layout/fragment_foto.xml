@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentFOTO"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/tituloFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Captura de Lugares"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        >
+
+        <ImageView
+            android:id="@+id/foto_tomada"
+            android:layout_width="200dp"
+            android:layout_height="220dp"
+            android:src="@drawable/imagen_no_disponible"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+
+            />
+
+        <TextView
+            android:id="@+id/oomentario1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/foto_tomada"
+            android:layout_toEndOf="@+id/foto_tomada"
+            android:text="Toma una foto del lugar que visitaste y envianosla"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:hint="Ingrese una breve descripcion"
+        android:padding="20dp"
+        android:selectAllOnFocus="false"
+        android:width="30sp"
+        android:textColorLink="@color/colorAccent"
+        android:scrollHorizontally="true"/>
+
+
+</LinearLayout>

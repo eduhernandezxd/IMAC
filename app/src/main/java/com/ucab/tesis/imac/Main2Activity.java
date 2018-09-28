@@ -1,5 +1,6 @@
 package com.ucab.tesis.imac;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.ucab.tesis.imac.fragments.FragmentA;
 import com.ucab.tesis.imac.fragments.FragmentB;
+import com.ucab.tesis.imac.fragments.FragmentFOTO;
 import com.ucab.tesis.imac.interfaces.ComunicatorIF;
 import com.ucab.tesis.imac.modelo.Items;
 
@@ -36,14 +38,14 @@ public class Main2Activity extends AppCompatActivity
         GoogleApiClient.OnConnectionFailedListener,
         FragmentA.OnFragmentInteractionListener,
         FragmentB.OnFragmentInteractionListener,
+        FragmentFOTO.OnFragmentInteractionListener,
         ComunicatorIF{
 
 
     private GoogleApiClient googleApiClient;
     FragmentA fragmentA;
     FragmentB fragmentB;
-
-
+    FragmentFOTO fragmentFOTO;
 
 
     @Override
@@ -53,6 +55,7 @@ public class Main2Activity extends AppCompatActivity
 
         fragmentA = new FragmentA();
         fragmentB = new FragmentB();
+
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contendorFragments,fragmentA).commit();
@@ -130,12 +133,14 @@ public class Main2Activity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
+        fragmentFOTO = null;
+        boolean fragment_seleccionado = false;
 
         if (id == R.id.nav_1) {
-            // Handle the camera action
-
+            fragmentFOTO = new FragmentFOTO();
+            fragment_seleccionado = true;
 
         } else if (id == R.id.nav_2) {
 
@@ -148,6 +153,11 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_6){
             LogOut();
         }
+
+        if(fragment_seleccionado==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contendorFragments,fragmentFOTO).commit();
+        }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
