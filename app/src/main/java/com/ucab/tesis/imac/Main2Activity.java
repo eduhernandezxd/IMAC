@@ -155,7 +155,7 @@ public class Main2Activity extends AppCompatActivity
         }
 
         if(fragment_seleccionado==true){
-            getSupportFragmentManager().beginTransaction().replace(R.id.contendorFragments,fragmentFOTO).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contendorFragments,fragmentFOTO).addToBackStack(null).commit();
         }
 
 
