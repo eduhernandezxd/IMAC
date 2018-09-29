@@ -19,7 +19,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="8dp"
         >
 
         <ImageView
@@ -42,6 +42,7 @@
             android:text="Toma una foto del lugar que visitaste y envianosla"
             android:textSize="15sp"
             android:textStyle="italic"
+            android:paddingTop="50dp"
             />
 
     </RelativeLayout>
@@ -52,9 +53,40 @@
         android:hint="Ingrese una breve descripcion"
         android:padding="20dp"
         android:selectAllOnFocus="false"
-        android:width="30sp"
         android:textColorLink="@color/colorAccent"
-        android:scrollHorizontally="true"/>
+        android:scrollHorizontally="true"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:padding="5dp"
+        >
+
+    <Button
+        android:id="@+id/boton_opciones_foto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="Opciones de Imagen"
+        android:background="@drawable/boton_redondo"
+
+        />
+
+    <Button
+        android:id="@+id/boton_enviar_foto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:text="Enviar"
+        android:background="@drawable/boton_redondo"
+
+        />
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

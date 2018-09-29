@@ -40,6 +40,7 @@ public class FragmentB extends Fragment {
     TextView texto_s;
     ImageView imagen_s;
 
+
     private List<String> list_padre;
     private HashMap<String,List<String>> listHashMap;
 
