@@ -111,9 +111,6 @@ public class FragmentFOTO extends Fragment {
             Toast.makeText(getContext(),"Se requieren permisos para poder habilitar Opciones de Imagen",Toast.LENGTH_LONG).show();
         }
 
-
-
-
         return vista;
     }
 
@@ -151,7 +148,6 @@ public class FragmentFOTO extends Fragment {
             }
         }
 
-
     }
 
     private void solicitarPermisosManual() {
@@ -169,7 +165,6 @@ public class FragmentFOTO extends Fragment {
                     Uri uri = Uri.fromParts("package",getActivity().getPackageName(),null);
                     intent.setData(uri);
                     startActivity(intent);
-
 
                 }else{
                     dialog.dismiss();
@@ -219,9 +214,6 @@ public class FragmentFOTO extends Fragment {
         });
 
         alertOpciones.show();
-
-
-
 
     }
 

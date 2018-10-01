@@ -2,6 +2,7 @@ package com.ucab.tesis.imac.Adaptadores;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -22,7 +22,7 @@
         <activity
             android:name=".Sesion"
             android:label="@string/nav_header_title"
-            android:screenOrientation="portrait">
+            >
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -44,6 +44,14 @@
             android:name=".MainActivity"
             android:label="@string/nav_header_title"
             >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
 
         </activity>
 

@@ -69,8 +69,11 @@
         android:id="@+id/boton_opciones_foto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_weight="4.8"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Opciones de Imagen"
+        android:textSize="13sp"
         android:background="@drawable/boton_redondo"
 
         />
@@ -79,8 +82,11 @@
         android:id="@+id/boton_enviar_foto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_weight="4.8"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Enviar"
+        android:textSize="13sp"
         android:background="@drawable/boton_redondo"
 
         />
