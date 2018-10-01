@@ -21,6 +21,7 @@
     <string name="historia">Reseña Historica</string>
     <string name="vegetacion">Vegetación Arborea</string>
     <string name="actividades">Actividades Recreacionales</string>
+    <string name="google_maps_API_key">AIzaSyDUBcfAK2yc4du7jeRq4CLKRvwFuxALvFs</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
